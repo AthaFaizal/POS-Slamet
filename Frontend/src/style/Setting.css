@@ -1,0 +1,258 @@
+.setting-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.setting-header h1 {
+  margin: 0;
+  font-size: 26px;
+  color: #0f172a;
+}
+
+.setting-header p {
+  max-width: 680px;
+  margin: 8px 0 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.setting-eyebrow {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.setting-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.7fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.setting-card,
+.setting-info-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+}
+
+.setting-card {
+  padding: 24px;
+}
+
+.setting-card-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.setting-card-heading h2,
+.setting-info-card h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 17px;
+}
+
+.setting-card-heading p {
+  margin: 6px 0 0;
+  max-width: 560px;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.setting-badge {
+  height: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #ecfdf5;
+  color: #047857;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.setting-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 22px;
+}
+
+.setting-label {
+  color: #334155;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.currency-input {
+  display: flex;
+  align-items: center;
+  max-width: 360px;
+  height: 48px;
+  overflow: hidden;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+}
+
+.currency-input:focus-within {
+  border-color: #0f766e;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.08);
+}
+
+.currency-input span {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 14px;
+  border-right: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.currency-input input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: none;
+  padding: 0 14px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.setting-example {
+  max-width: 620px;
+  padding: 14px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.setting-example > span {
+  display: block;
+  margin-bottom: 5px;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.setting-example p {
+  margin: 0;
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.setting-alert {
+  max-width: 620px;
+  padding: 11px 13px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.setting-alert.success {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.setting-alert.error {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.setting-save-button {
+  min-height: 42px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 10px;
+  background: #0f766e;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.setting-save-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.setting-info-card {
+  padding: 22px;
+}
+
+.setting-info-card h2 {
+  margin-bottom: 18px;
+}
+
+.setting-rule {
+  display: flex;
+  gap: 13px;
+  padding: 14px 0;
+  border-top: 1px solid #eef2f7;
+}
+
+.setting-rule:first-of-type {
+  border-top: 0;
+}
+
+.setting-rule > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.setting-rule strong {
+  display: block;
+  color: #0f172a;
+  font-size: 13px;
+}
+
+.setting-rule p {
+  margin: 4px 0 0;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .setting-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .setting-card,
+  .setting-info-card {
+    padding: 18px;
+  }
+
+  .setting-card-heading {
+    flex-direction: column;
+  }
+
+  .currency-input {
+    max-width: none;
+  }
+}

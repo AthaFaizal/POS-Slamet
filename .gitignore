@@ -1,0 +1,14 @@
+node_modules/
+.env
+.env.*
+!.env.example
+
+Backend/database/*.db
+Backend/database/*.db-shm
+Backend/database/*.db-wal
+
+Frontend/dist/
+Backend/dist/
+
+.vscode/
+.DS_Store

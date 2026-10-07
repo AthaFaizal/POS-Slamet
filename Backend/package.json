@@ -1,0 +1,22 @@
+{
+  "name": "pos-toko-sembako-backend",
+  "version": "1.0.0",
+  "description": "Backend POS Toko Sembako menggunakan Express dan SQLite",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^13.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3"
+  }
+}
