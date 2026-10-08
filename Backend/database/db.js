@@ -1,6 +1,8 @@
 import Database from "better-sqlite3";
+import bcrypt from "bcryptjs";
 import path from "path";
 import { fileURLToPath } from "url";
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,6 +16,61 @@ const db = new Database(databasePath);
 
 db.pragma("journal_mode = WAL");
 db.pragma("foreign_keys = ON");
+
+
+/* =========================================================
+   USERS
+   Akun pengguna aplikasi
+   ========================================================= */
+
+db.exec(`
+  CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+    username TEXT UNIQUE NOT NULL,
+
+    password_hash TEXT NOT NULL,
+
+    name TEXT NOT NULL,
+
+    role TEXT NOT NULL DEFAULT 'kasir',
+
+    is_active INTEGER NOT NULL DEFAULT 1,
+
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+  );
+`);
+
+const adminUser = db.prepare(`
+  SELECT id
+  FROM users
+  WHERE username = ?
+`).get("admin");
+
+if (!adminUser) {
+  const passwordHash = bcrypt.hashSync("admin123", 10);
+
+  db.prepare(`
+    INSERT INTO users (
+      username,
+      password_hash,
+      name,
+      role,
+      is_active
+    )
+    VALUES (?, ?, ?, ?, ?)
+  `).run(
+    "admin",
+    passwordHash,
+    "Administrator",
+    "admin",
+    1
+  );
+
+  console.log("User admin berhasil dibuat.");
+}
 
 
 /* =========================================================
@@ -322,6 +379,7 @@ db.exec(`
       ON DELETE SET NULL
   );
 `);
+
 
 
 /* =========================================================
